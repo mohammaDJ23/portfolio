@@ -1,0 +1,47 @@
+.h-500 {
+  height: 500px;
+}
+
+.padding-left-3-temp {
+  padding-left: 3%;
+}
+
+.about-me .abstract {
+  font-size: larger;
+}
+
+.information img {
+  box-shadow: 0 40px 80px 2px rgb(0, 0, 0, 0.18);
+}
+
+@media screen and (max-width: 1080px) {
+  .about-me .abstract {
+    font-size: large;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .about-me .information .picture {
+    display: none;
+  }
+
+  .about-me .information .col-8 {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .about-me .information {
+    text-align: center;
+  }
+
+  .about-me .information br {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .about-me .abstract {
+    font-size: 16px;
+  }
+}

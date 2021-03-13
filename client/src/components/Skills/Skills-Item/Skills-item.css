@@ -1,0 +1,3 @@
+.skills .skills-item .skill-item:not(:last-child) {
+  margin-right: 3%;
+}

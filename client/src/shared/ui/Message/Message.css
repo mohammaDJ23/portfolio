@@ -1,0 +1,28 @@
+.message {
+  box-shadow: 0 40px 80px 2px rgb(0, 0, 0, 0.18);
+}
+
+.message.w-300 {
+  width: 300px;
+}
+
+.message.top-2 {
+  top: 2%;
+}
+
+.message.top--100 {
+  top: -100%;
+}
+
+.message.border-radius-8 {
+  border-radius: 8px;
+}
+
+.message.red-background-color {
+  background-color: rgb(255, 0, 0);
+}
+
+.message.left-50 {
+  left: 50%;
+  transform: translateX(-50%);
+}

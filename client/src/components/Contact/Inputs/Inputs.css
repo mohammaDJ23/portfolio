@@ -1,0 +1,28 @@
+.contact .mr-4-temp {
+  margin-right: 4%;
+}
+
+@media screen and (max-width: 1080px) {
+  .contact .col-8 {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .contact .col-8 {
+    width: 100%;
+  }
+
+  .contact .flex-reverse {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact .flex-reverse > div:not(:last-child) {
+    margin-bottom: 26px;
+  }
+
+  .contact .flex-reverse > div:last-child {
+    margin-bottom: -22px;
+  }
+}

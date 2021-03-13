@@ -1,0 +1,22 @@
+.bottom-left-10-5 {
+  bottom: 10%;
+  left: 5%;
+}
+
+.opacity-6 {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 960px) {
+  .about-me .large-curve,
+  .skill .large-curve {
+    transform: scale(0.8);
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .about-me .large-curve,
+  .skill .large-curve {
+    transform: scale(0.6);
+  }
+}

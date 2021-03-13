@@ -1,0 +1,5 @@
+.bottom-left-3-50 {
+  bottom: 3%;
+  left: 50%;
+  transform: translate(-50%, -3%);
+}

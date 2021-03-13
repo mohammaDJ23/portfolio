@@ -1,0 +1,21 @@
+.bottom-right-0 {
+  bottom: 0;
+  right: 0;
+}
+
+.opacity-5 {
+  opacity: 0.5;
+}
+
+.about-me .circle {
+  background-color: #f1f1f1;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 960px) {
+  .about-me .circle {
+    transform: scale(0.8);
+  }
+}
