@@ -28,9 +28,9 @@ const NavigationIcon: FunctionComponent = () => {
 
   return (
     <div
-      className={`position-absolute default-transition ${
-        !showNavigation ? "top-left-0" : "left-temp"
-      } z-140 hover`}
+      className={`navigation-icon ${
+        showNavigation ? "position-fixed" : "position-absolute"
+      } default-transition ${!showNavigation ? "top-left-0" : "left-temp"} z-140 hover`}
       onClick={() => showNavigationHandler()}
     >
       <div ref={navigationIconRef}>
