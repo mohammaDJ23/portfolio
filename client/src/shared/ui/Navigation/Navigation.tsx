@@ -1,4 +1,4 @@
-import { FunctionComponent, useContext } from "react";
+import { FunctionComponent, memo, useContext } from "react";
 import { createPortal } from "react-dom";
 
 import { NavigationContextTypes, NavigationListTypes } from "../../types/types";
@@ -56,4 +56,4 @@ const Navigation: FunctionComponent = () => {
   return createPortal(nav, document.getElementById("navigation")! as HTMLDivElement);
 };
 
-export default Navigation;
+export default memo(Navigation);

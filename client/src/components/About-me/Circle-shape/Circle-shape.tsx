@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useRef } from "react";
+import { FunctionComponent, memo, useEffect, useRef } from "react";
 import { TweenMax } from "gsap";
 
 import { DurationTimesEnum, UseCircleHookTypes } from "../../../shared/types/types";
@@ -56,4 +56,4 @@ const CircleShape: FunctionComponent<UseCircleHookTypes> = ({ scale, rotate }) =
   );
 };
 
-export default CircleShape;
+export default memo(CircleShape);

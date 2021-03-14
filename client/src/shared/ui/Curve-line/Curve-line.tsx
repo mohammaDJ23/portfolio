@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useRef } from "react";
+import { FunctionComponent, memo, useEffect, useRef } from "react";
 import { TweenMax } from "gsap";
 
 import { CurveLineTypes, DurationTimesEnum } from "../../types/types";
@@ -91,4 +91,4 @@ const CurveLine: FunctionComponent<CurveLineTypes> = ({
   );
 };
 
-export default CurveLine;
+export default memo(CurveLine);

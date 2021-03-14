@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, memo } from "react";
 
 import SkillBar from "../../../shared/ui/Skill-bar/Skill-bar";
 import { SkillsItemArrTypes } from "../../../shared/types/types";
@@ -30,4 +30,4 @@ const SkillsItem: FunctionComponent<SkillsItemArrTypes> = ({
   );
 };
 
-export default SkillsItem;
+export default memo(SkillsItem);

@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, memo } from "react";
 
 import { HomeButtonsComponentTypes } from "../../../shared/types/types";
 
@@ -52,4 +52,4 @@ const Buttons: FunctionComponent<HomeButtonsComponentTypes> = ({
   );
 };
 
-export default Buttons;
+export default memo(Buttons);

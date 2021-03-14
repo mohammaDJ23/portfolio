@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, memo } from "react";
 
 import pic from "../../../images/IMG_20160922_140249.jpg";
 import { AboutMeAbstractComponentTypes } from "../../../shared/types/types";
@@ -44,4 +44,4 @@ const AboutMeAbstract: FunctionComponent<AboutMeAbstractComponentTypes> = ({
   );
 };
 
-export default AboutMeAbstract;
+export default memo(AboutMeAbstract);

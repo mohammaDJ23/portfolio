@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, memo } from "react";
 
 import { MessageComponentTypes } from "../../types/types";
 
@@ -24,4 +24,4 @@ const Message: FunctionComponent<MessageComponentTypes> = ({ message, error }) =
   );
 };
 
-export default Message;
+export default memo(Message);

@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, memo } from "react";
 
 import { PortfolioItemComponentTypes } from "../../../shared/types/types";
 import { lists } from "../../../shared/utils/make-list/make-list";
@@ -51,4 +51,4 @@ const PortfolioItem: FunctionComponent<PortfolioItemComponentTypes> = ({
   );
 };
 
-export default PortfolioItem;
+export default memo(PortfolioItem);

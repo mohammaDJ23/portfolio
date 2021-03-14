@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, memo } from "react";
 import Button from "@material-ui/core/Button";
 import { createStyles, withStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { grey } from "@material-ui/core/colors";
@@ -113,4 +113,4 @@ const Inputs: FunctionComponent<InputsComponentTypes> = ({
   );
 };
 
-export default Inputs;
+export default memo(Inputs);

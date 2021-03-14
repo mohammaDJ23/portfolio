@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, memo } from "react";
 
 import { HomeBackgroundsComponentTypes } from "../../../shared/types/types";
 
@@ -33,4 +33,4 @@ const Backgrounds: FunctionComponent<HomeBackgroundsComponentTypes> = ({
   );
 };
 
-export default Backgrounds;
+export default memo(Backgrounds);

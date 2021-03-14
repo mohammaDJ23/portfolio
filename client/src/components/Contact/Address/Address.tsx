@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, memo } from "react";
 
 import { AddressComponentTypes } from "../../../shared/types/types";
 
@@ -83,4 +83,4 @@ const Address: FunctionComponent<AddressComponentTypes> = ({ showContactInformat
   );
 };
 
-export default Address;
+export default memo(Address);

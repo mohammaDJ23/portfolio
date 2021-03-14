@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, memo } from "react";
 
 import { InitialInformationComponentTypes } from "../../../shared/types/types";
 
@@ -69,4 +69,4 @@ const InitialInformation: FunctionComponent<InitialInformationComponentTypes> = 
   );
 };
 
-export default InitialInformation;
+export default memo(InitialInformation);
