@@ -27,7 +27,7 @@ app.use("/graphql", graphql);
 (async function () {
   try {
     await mongoose.connect(
-      "***************************************************************************************************",
+      "mongodb+srv://mohammad-75:ZoIuMpkaDUTpKfRF@cluster0.zp1rc.mongodb.net/PORTFOLIO?retryWrites=true&w=majority",
       { useUnifiedTopology: true, useNewUrlParser: true }
     );
 
