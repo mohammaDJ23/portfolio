@@ -15,6 +15,7 @@ const mySkills: SkillItemTypes[] = [
   { label: "Typescript", percent: 80 },
   { label: "Bootstrap", percent: 95 },
   { label: "React.js", percent: 98 },
+  { label: "Next.js", percent: 85 },
   { label: "Node.js", percent: 90 },
   { label: "Express.js", percent: 94 },
   { label: "MongoDb", percent: 87 },
