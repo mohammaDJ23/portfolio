@@ -10,6 +10,7 @@ import kallyas from "../../images/kallyas.jpg";
 import shop from "../../images/shop.jpg";
 import maxon from "../../images/maxon.jpg";
 import map from "../../images/map.jpg";
+import jsNotes from "../../images/js-notes.png";
 import { useResize } from "../../shared/hook/resize/resize";
 
 import {
@@ -19,6 +20,11 @@ import {
 } from "../../shared/types/types";
 
 const myWorks: MyWorksTypes[] = [
+  {
+    name: "JS NOTES",
+    image: jsNotes,
+    url: "https://github.com/mohammaDJ23/js-notes/tree/main/Desktop/js-notes"
+  },
   { name: "INSTAGRAM", image: instagram, url: "https://instagram-75476.web.app/auth" },
   { name: "KALLYAS", image: kallyas, url: "https://kallyas-5caae.web.app/home" },
   { name: "SHOP", image: shop, url: "https://shop-24c15.web.app/home" },
