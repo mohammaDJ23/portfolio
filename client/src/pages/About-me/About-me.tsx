@@ -57,10 +57,7 @@ const AboutMe: FunctionComponent = () => {
     <>
       <Navigation />
 
-      <section
-        ref={aboutMeRef}
-        className="about-me white-background-color overflow-auto full-screen"
-      >
+      <section ref={aboutMeRef} className="about-me white-background-color overflow-auto full-screen">
         {isAllowToRender && (
           <div className="padding-3 w-100 h-100">
             <div className="max-width-1080 m-auto position-relative m-0 w-100 h-100">

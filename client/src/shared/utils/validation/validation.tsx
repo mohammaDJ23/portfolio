@@ -2,7 +2,7 @@ import validator from "validator";
 
 import { InputEnums, IsValidInputTypes } from "../../types/types";
 
-const { isLength, isEmail, normalizeEmail, matches } = validator;
+const { isLength, normalizeEmail, matches } = validator;
 
 export function validation(value: string, input: string) {
   let isValid: IsValidInputTypes = { valid: true, error: "" };
@@ -21,7 +21,11 @@ export function validation(value: string, input: string) {
       break;
 
     case InputEnums.EMAIL:
-      isValid["valid"] = isValid["valid"] && isEmail(value);
+      isValid["valid"] =
+        isValid["valid"] &&
+        /^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/.test(
+          value
+        );
 
       if (isValid["valid"]) {
         normalizeEmail(value);

@@ -26,7 +26,11 @@ export function validation(inputs: ValidationTypes): ValidationReturnTypes {
         break;
 
       case InputsEnums.EMAIL:
-        isValid = isValid && isEmail(inputs[input]);
+        isValid =
+          isValid &&
+          /^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/.test(
+            inputs[input]
+          );
 
         if (isValid) {
           normalizeEmail(inputs[input]);

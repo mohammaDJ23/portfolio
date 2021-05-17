@@ -13,11 +13,7 @@ import map from "../../images/map.jpg";
 import jsNotes from "../../images/js-notes.png";
 import { useResize } from "../../shared/hook/resize/resize";
 
-import {
-  DurationTimesEnum,
-  MyWorksTypes,
-  ResizeHandlerActionsEnums
-} from "../../shared/types/types";
+import { DurationTimesEnum, MyWorksTypes, ResizeHandlerActionsEnums } from "../../shared/types/types";
 
 const myWorks: MyWorksTypes[] = [
   {
@@ -54,9 +50,7 @@ const Portfolio: FunctionComponent = () => {
 
       portfolioItem.childNodes.forEach(row => rowCols["row"].push(row! as HTMLDivElement));
 
-      rowCols.row.forEach(row =>
-        row.childNodes.forEach(col => rowCols["col"].push(col! as HTMLDivElement))
-      );
+      rowCols.row.forEach(row => row.childNodes.forEach(col => rowCols["col"].push(col! as HTMLDivElement)));
 
       TweenMax.fromTo(
         [portfolioItemHead, ...rowCols["col"]],
