@@ -13,20 +13,28 @@ const mySkills: SkillItemTypes[] = [
   { label: "Css", percent: 100 },
   { label: "Javascript", percent: 90 },
   { label: "Typescript", percent: 80 },
+  { label: "OOP", percent: 90 },
+  { label: "Decorators", percent: 70 },
+  { label: "Metadata", percent: 70 },
   { label: "Bootstrap", percent: 95 },
+  { label: "Material-Ui", percent: 70 },
   { label: "React.js", percent: 98 },
   { label: "Next.js", percent: 85 },
   { label: "Node.js", percent: 90 },
   { label: "Express.js", percent: 94 },
+  { label: "Apollo server", percent: 70 },
   { label: "MongoDb", percent: 87 },
   { label: "Mongoose", percent: 80 },
   { label: "MERN stack", percent: 98 },
   { label: "REST api", percent: 100 },
   { label: "GraphQl", percent: 92 },
+  { label: "Prisma", percent: 40 },
   { label: "Socket.io", percent: 70 },
   { label: "Photoshop", percent: 40 },
   { label: "Front end", percent: 90 },
-  { label: "Back end", percent: 80 }
+  { label: "Back end", percent: 70 },
+  { label: "Git", percent: 40 },
+  { label: "Github", percent: 60 }
 ];
 
 const reducer = (
@@ -59,18 +67,24 @@ const reducer = (
 };
 
 export const useResize = (type: number): UseResizeHookReturnTypes => {
-  const [{ showCurve, portfolioItemPerRow, skillItemPerCol }, dispatch] = useReducer(reducer, {
-    showCurve: true,
-    portfolioItemPerRow: 3,
-    skillItemPerCol: 0
-  });
+  const [{ showCurve, portfolioItemPerRow, skillItemPerCol }, dispatch] = useReducer(
+    reducer,
+    {
+      showCurve: true,
+      portfolioItemPerRow: 3,
+      skillItemPerCol: 0
+    }
+  );
 
   const showCurveDispatch = useCallback((show: boolean) => {
     dispatch({ type: ResizeHandlerActionsEnums.SHOW_CURVE, showCurve: show });
   }, []);
 
   const portfolioItemPerRowDispatch = useCallback((num: number) => {
-    dispatch({ type: ResizeHandlerActionsEnums.PORTfOLIO_ITEM_PER_ROW, portfolioItemPerRow: num });
+    dispatch({
+      type: ResizeHandlerActionsEnums.PORTfOLIO_ITEM_PER_ROW,
+      portfolioItemPerRow: num
+    });
   }, []);
 
   const skillItemPerColDispatch = useCallback((num: number) => {
@@ -133,7 +147,12 @@ export const useResize = (type: number): UseResizeHookReturnTypes => {
     return () => {
       window.removeEventListener("resize", resizeHandler);
     };
-  }, [type, showCurveDispatch, portfolioItemPerRowDispatch, skillItemPerColDispatch]);
+  }, [
+    type,
+    showCurveDispatch,
+    portfolioItemPerRowDispatch,
+    skillItemPerColDispatch
+  ]);
 
   return { showCurve, portfolioItemPerRow, skillItemPerCol, mySkills };
 };
