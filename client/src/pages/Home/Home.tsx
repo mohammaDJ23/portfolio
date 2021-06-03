@@ -1,4 +1,10 @@
-import { FunctionComponent, useCallback, useEffect, useReducer, useRef } from "react";
+import {
+  FunctionComponent,
+  useCallback,
+  useEffect,
+  useReducer,
+  useRef
+} from "react";
 import { TweenMax } from "gsap";
 
 import { useRendringPage } from "../../shared/hook/rendring-page/rendring-page";
@@ -23,7 +29,10 @@ import { useRendringPage as useRedirectPage } from "../../shared/hook/redirect/r
 
 let timer: ReturnType<typeof setInterval>;
 
-const reducer = (state: HomeStateTypes, action: HomeDispatchTypes): HomeStateTypes => {
+const reducer = (
+  state: HomeStateTypes,
+  action: HomeDispatchTypes
+): HomeStateTypes => {
   switch (action.type) {
     case HomeDispatchEnums.SCREEN_HEIGHT:
       return {
@@ -65,7 +74,10 @@ const reducer = (state: HomeStateTypes, action: HomeDispatchTypes): HomeStateTyp
 };
 
 const Home: FunctionComponent = () => {
-  const [{ screenHeight, translateY, carouselPosition, pictures }, dispatch] = useReducer(reducer, {
+  const [
+    { screenHeight, translateY, carouselPosition, pictures },
+    dispatch
+  ] = useReducer(reducer, {
     screenHeight: 0,
     translateY: 0,
     carouselPosition: 0,
@@ -77,13 +89,13 @@ const Home: FunctionComponent = () => {
     ]
   });
 
-  const homeRef = useRef<HTMLElement>(null);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const myNameRef = useRef<HTMLDivElement>(null);
-  const myJobRef = useRef<HTMLDivElement>(null);
-  const myLevelRef = useRef<HTMLDivElement>(null);
-  const myPortfolioRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLDivElement>(null);
+  const homeRef = useRef<HTMLElement | null>(null);
+  const carouselRef = useRef<HTMLDivElement | null>(null);
+  const myNameRef = useRef<HTMLDivElement | null>(null);
+  const myJobRef = useRef<HTMLDivElement | null>(null);
+  const myLevelRef = useRef<HTMLDivElement | null>(null);
+  const myPortfolioRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLDivElement | null>(null);
 
   const { isAllowToRender } = useRendringPage(homeRef);
   const { navigateToPage } = useRedirectPage();
@@ -91,13 +103,22 @@ const Home: FunctionComponent = () => {
   // get window screen innerHeight
 
   useEffect(() => {
-    dispatch({ type: HomeDispatchEnums.SCREEN_HEIGHT, screenHeight: window.innerHeight });
+    dispatch({
+      type: HomeDispatchEnums.SCREEN_HEIGHT,
+      screenHeight: window.innerHeight
+    });
 
     const getScreenInnerHeight = (event: any) => {
       const innerHeight = (event.target as { innerHeight: number }).innerHeight;
 
-      dispatch({ type: HomeDispatchEnums.SCREEN_HEIGHT, screenHeight: innerHeight });
-      dispatch({ type: HomeDispatchEnums.TRANSLATE_Y, translateY: innerHeight * carouselPosition });
+      dispatch({
+        type: HomeDispatchEnums.SCREEN_HEIGHT,
+        screenHeight: innerHeight
+      });
+      dispatch({
+        type: HomeDispatchEnums.TRANSLATE_Y,
+        translateY: innerHeight * carouselPosition
+      });
     };
 
     window.addEventListener("resize", getScreenInnerHeight);
@@ -111,8 +132,14 @@ const Home: FunctionComponent = () => {
 
   const backgroundChangerHandler = useCallback(
     ({ id, index }: BackgroundChangeHandlerTypes) => {
-      dispatch({ type: HomeDispatchEnums.TRANSLATE_Y, translateY: screenHeight * index });
-      dispatch({ type: HomeDispatchEnums.CAROUSEL_POSITION, carouselPosition: index });
+      dispatch({
+        type: HomeDispatchEnums.TRANSLATE_Y,
+        translateY: screenHeight * index
+      });
+      dispatch({
+        type: HomeDispatchEnums.CAROUSEL_POSITION,
+        carouselPosition: index
+      });
       dispatch({ type: HomeDispatchEnums.PICTURES, id });
     },
     [screenHeight]
@@ -128,7 +155,9 @@ const Home: FunctionComponent = () => {
     const backgroundChangerHandlerByTimer = (delay: number) => {
       timer = setTimeout(() => {
         const picturesState = [...pictures];
-        const findedIndexOfPicture = picturesState.find(pic => pic.yellowButton);
+        const findedIndexOfPicture = picturesState.find(
+          pic => pic.yellowButton
+        );
 
         if (!findedIndexOfPicture) {
           return;
@@ -177,7 +206,12 @@ const Home: FunctionComponent = () => {
     const { current: myPortfolio } = myPortfolioRef;
     const { current: button } = buttonRef;
 
-    const htmlArr: (HTMLDivElement | null)[] = [myName, myJob, myLevel, myPortfolio];
+    const htmlArr: (HTMLDivElement | null)[] = [
+      myName,
+      myJob,
+      myLevel,
+      myPortfolio
+    ];
 
     if (button) {
       button.childNodes.forEach(child => {
@@ -195,7 +229,14 @@ const Home: FunctionComponent = () => {
         { y: 0, stagger: DurationTimesEnum.STAGGER, ease: "expo.out" }
       );
     }
-  }, [myNameRef, myJobRef, myLevelRef, myPortfolioRef, isAllowToRender, buttonRef]);
+  }, [
+    myNameRef,
+    myJobRef,
+    myLevelRef,
+    myPortfolioRef,
+    isAllowToRender,
+    buttonRef
+  ]);
 
   return (
     <>
@@ -203,7 +244,11 @@ const Home: FunctionComponent = () => {
 
       <section ref={homeRef} className="home full-screen">
         <div className="container-fluid p-0 w-100 h-100 position-relative">
-          <Backgrounds pictures={pictures} translateY={-translateY} carouselRef={carouselRef} />
+          <Backgrounds
+            pictures={pictures}
+            translateY={-translateY}
+            carouselRef={carouselRef}
+          />
 
           {isAllowToRender && (
             <div className="padding-3 w-100 h-100">

@@ -24,13 +24,13 @@ import { InputCleanerContext } from "../../shared/context/input-cleaner/input-cl
 import "./Contact.css";
 
 const Contact: FunctionComponent = () => {
-  const contactRef = useRef<HTMLElement>(null);
-  const arrowRef = useRef<HTMLDivElement>(null);
-  const headRef = useRef<HTMLDivElement>(null);
-  const nameInputRef = useRef<HTMLDivElement>(null);
-  const emailInputRef = useRef<HTMLDivElement>(null);
-  const messageInputRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLElement | null>(null);
+  const arrowRef = useRef<HTMLDivElement | null>(null);
+  const headRef = useRef<HTMLDivElement | null>(null);
+  const nameInputRef = useRef<HTMLDivElement | null>(null);
+  const emailInputRef = useRef<HTMLDivElement | null>(null);
+  const messageInputRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLDivElement | null>(null);
   const abortHttpRequestRef = useRef<AbortController[]>([]);
 
   const [showContactInformation, setShowContactInformation] = useState<boolean>(false);

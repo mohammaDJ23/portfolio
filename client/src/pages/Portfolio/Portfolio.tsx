@@ -36,16 +36,20 @@ const myWorks: MyWorksTypes[] = [
     image: instagram,
     url: "https://instagram-75476.web.app/auth"
   },
-  { name: "KALLYAS", image: kallyas, url: "https://kallyas-5caae.web.app/home" },
+  {
+    name: "KALLYAS",
+    image: kallyas,
+    url: "https://kallyas-5caae.web.app/home"
+  },
   { name: "SHOP", image: shop, url: "https://shop-24c15.web.app/home" },
   { name: "MAXON", image: maxon, url: "https://github.com/mohammaDJ23/maxon" },
   { name: "MAP", image: map, url: "https://map-2e6d1.web.app/" }
 ];
 
 const Portfolio: FunctionComponent = () => {
-  const portfolioRef = useRef<HTMLElement>(null);
-  const portfolioItemHeadRef = useRef<HTMLDivElement>(null);
-  const portfolioItemRef = useRef<HTMLDivElement>(null);
+  const portfolioRef = useRef<HTMLElement | null>(null);
+  const portfolioItemHeadRef = useRef<HTMLDivElement | null>(null);
+  const portfolioItemRef = useRef<HTMLDivElement | null>(null);
   const { isAllowToRender } = useRendringPage(portfolioRef);
   const { portfolioItemPerRow } = useResize(
     ResizeHandlerActionsEnums.PORTfOLIO_ITEM_PER_ROW
@@ -69,7 +73,9 @@ const Portfolio: FunctionComponent = () => {
       );
 
       rowCols.row.forEach(row =>
-        row.childNodes.forEach(col => rowCols["col"].push(col! as HTMLDivElement))
+        row.childNodes.forEach(col =>
+          rowCols["col"].push(col! as HTMLDivElement)
+        )
       );
 
       TweenMax.fromTo(
