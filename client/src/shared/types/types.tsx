@@ -73,7 +73,7 @@ export interface InitialInformationComponentTypes extends UseRedirectHookTypes {
 
 export interface NavigationContextTypes {
   showNavigation: boolean;
-  showNavigationHandler: () => void;
+  showNavigationHandler: (arg: boolean) => void;
 }
 
 export interface NavigationListTypes {
@@ -143,7 +143,11 @@ export interface PortfolioItemComponentTypes {
   portfolioItemHeadRef: HtmlDivRefTypes;
 }
 
-type OnInputHandler = (arg: { label: string; value: string; valid: boolean }) => void;
+type OnInputHandler = (arg: {
+  label: string;
+  value: string;
+  valid: boolean;
+}) => void;
 
 export interface InputTypes {
   label: string;
@@ -188,8 +192,14 @@ export interface InputsComponentTypes {
 
 export type resizeDispatchTypes =
   | { type: ResizeHandlerActionsEnums.SHOW_CURVE; showCurve: boolean }
-  | { type: ResizeHandlerActionsEnums.PORTfOLIO_ITEM_PER_ROW; portfolioItemPerRow: number }
-  | { type: ResizeHandlerActionsEnums.SKILL_ITEM_PER_COL; skillItemPerCol: number };
+  | {
+      type: ResizeHandlerActionsEnums.PORTfOLIO_ITEM_PER_ROW;
+      portfolioItemPerRow: number;
+    }
+  | {
+      type: ResizeHandlerActionsEnums.SKILL_ITEM_PER_COL;
+      skillItemPerCol: number;
+    };
 
 export enum DurationTimesEnum {
   FAST_DURATION = 0.8,

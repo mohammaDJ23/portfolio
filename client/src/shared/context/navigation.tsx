@@ -4,16 +4,21 @@ import { NavigationContextTypes } from "../types/types";
 
 export const NavigationContext = createContext<NavigationContextTypes>({
   showNavigation: false,
-  showNavigationHandler: () => {}
+  showNavigationHandler: (arg: boolean) => {}
 });
 
 const NavigationContextProvider: FunctionComponent = ({ children }) => {
   const [showNavigation, setShowNavigation] = useState<boolean>(false);
 
-  const showNavigationHandler = useCallback(() => setShowNavigation(prevState => !prevState), []);
+  const showNavigationHandler = useCallback(
+    (arg: boolean) => setShowNavigation(arg),
+    []
+  );
 
   return (
-    <NavigationContext.Provider value={{ showNavigation, showNavigationHandler }}>
+    <NavigationContext.Provider
+      value={{ showNavigation, showNavigationHandler }}
+    >
       {children}
     </NavigationContext.Provider>
   );

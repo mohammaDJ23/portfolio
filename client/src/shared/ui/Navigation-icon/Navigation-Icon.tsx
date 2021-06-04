@@ -7,9 +7,10 @@ import { NavigationContext } from "../../../shared/context/navigation";
 import "./Navigation-icon.css";
 
 const NavigationIcon: FunctionComponent = () => {
-  const { showNavigation, showNavigationHandler } = useContext<NavigationContextTypes>(
-    NavigationContext
-  );
+  const {
+    showNavigation,
+    showNavigationHandler
+  } = useContext<NavigationContextTypes>(NavigationContext);
 
   const navigationIconRef = useRef<HTMLDivElement>(null);
 
@@ -30,25 +31,33 @@ const NavigationIcon: FunctionComponent = () => {
     <div
       className={`navigation-icon ${
         showNavigation ? "position-fixed" : "position-absolute"
-      } default-transition ${!showNavigation ? "top-left-0" : "left-temp"} z-140 hover`}
-      onClick={() => showNavigationHandler()}
+      } default-transition ${
+        !showNavigation ? "top-left-0" : "left-temp"
+      } z-140 hover`}
+      onClick={() => showNavigationHandler(showNavigation ? false : true)}
     >
       <div ref={navigationIconRef}>
         <div
           className={`menu-line default-transition ${
-            !showNavigation ? "yellow-background-color" : "default-background-color menu-line-close"
+            !showNavigation
+              ? "yellow-background-color"
+              : "default-background-color menu-line-close"
           }`}
         ></div>
 
         <div
           className={`menu-line default-transition ${
-            !showNavigation ? "yellow-background-color" : "default-background-color menu-line-close"
+            !showNavigation
+              ? "yellow-background-color"
+              : "default-background-color menu-line-close"
           }`}
         ></div>
 
         <div
           className={`menu-line default-transition ${
-            !showNavigation ? "yellow-background-color" : "default-background-color menu-line-close"
+            !showNavigation
+              ? "yellow-background-color"
+              : "default-background-color menu-line-close"
           }`}
         ></div>
       </div>

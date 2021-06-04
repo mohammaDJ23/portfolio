@@ -6,6 +6,10 @@
   left: -190px;
 }
 
+.closer {
+  z-index: 129;
+}
+
 .navigation {
   width: 600px;
   transform: skew(-12deg);

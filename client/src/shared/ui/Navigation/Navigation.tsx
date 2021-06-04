@@ -18,42 +18,55 @@ const navigationList: NavigationListTypes[] = [
 const Navigation: FunctionComponent = () => {
   const { navigateToPage } = useRendringPage();
 
-  const { showNavigation, showNavigationHandler } = useContext<NavigationContextTypes>(
-    NavigationContext
-  );
+  const {
+    showNavigation,
+    showNavigationHandler
+  } = useContext<NavigationContextTypes>(NavigationContext);
 
   const onClickHandler = (path: string) => {
-    showNavigationHandler();
+    showNavigationHandler(false);
     navigateToPage(path);
   };
 
   const nav = (
-    <nav
-      className={`position-fixed z-130 navigation h-100 yellow-background-color default-transition ${
-        !showNavigation ? "hide" : "show"
-      }`}
-    >
-      <div className="container-fluid">
-        <div className="row p-0">
-          <div className="col p-0">
-            <ul className="navigation-list">
-              {navigationList.map(({ name, path }) => (
-                <li
-                  key={name}
-                  className="fast-transition hover"
-                  onClick={() => onClickHandler(path)}
-                >
-                  {name}
-                </li>
-              ))}
-            </ul>
+    <>
+      {showNavigation && (
+        <div
+          className="closer position-fixed w-100 h-100"
+          onClick={() => showNavigationHandler(false)}
+        ></div>
+      )}
+
+      <nav
+        className={`position-fixed z-130 navigation h-100 yellow-background-color default-transition ${
+          !showNavigation ? "hide" : "show"
+        }`}
+      >
+        <div className="container-fluid">
+          <div className="row p-0">
+            <div className="col p-0">
+              <ul className="navigation-list">
+                {navigationList.map(({ name, path }) => (
+                  <li
+                    key={name}
+                    className="fast-transition hover"
+                    onClick={() => onClickHandler(path)}
+                  >
+                    {name}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 
-  return createPortal(nav, document.getElementById("navigation")! as HTMLDivElement);
+  return createPortal(
+    nav,
+    document.getElementById("navigation")! as HTMLDivElement
+  );
 };
 
 export default memo(Navigation);
