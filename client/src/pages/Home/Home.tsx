@@ -8,8 +8,8 @@ import {
 import { TweenMax } from "gsap";
 
 import { useRendringPage } from "../../shared/hook/rendring-page/rendring-page";
-import picTwo from "../../images/IMG_20181108_163317.jpg";
 import picOne from "../../images/B612_20170920_0833344.jpg";
+import picTwo from "../../images/vs-code.png";
 import picThree from "../../images/IMG_20190404_1029181.jpg";
 
 import {
