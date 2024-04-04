@@ -1,49 +1,51 @@
-import { FunctionComponent, useEffect, useRef } from "react";
-import { TweenMax } from "gsap";
+import { FunctionComponent, useEffect, useRef } from 'react';
+import { TweenMax } from 'gsap';
 
-import { useRendringPage } from "../../shared/hook/rendring-page/rendring-page";
-import NavigationIcon from "../../shared/ui/Navigation-icon/Navigation-Icon";
-import Navigation from "../../shared/ui/Navigation/Navigation";
-import PortfolioItem from "../../components/Portfolio/Portfolio-item/Portfolio-item";
-import instagram from "../../images/instagram.png";
-import kallyas from "../../images/kallyas.jpg";
-import shop from "../../images/shop.jpg";
-import maxon from "../../images/maxon.jpg";
-import map from "../../images/map.jpg";
-import jsNotes from "../../images/js-notes.png";
-import inovice from "../../images/invoice.jpg";
-import { useResize } from "../../shared/hook/resize/resize";
+import { useRendringPage } from '../../shared/hook/rendring-page/rendring-page';
+import NavigationIcon from '../../shared/ui/Navigation-icon/Navigation-Icon';
+import Navigation from '../../shared/ui/Navigation/Navigation';
+import PortfolioItem from '../../components/Portfolio/Portfolio-item/Portfolio-item';
+import instagram from '../../images/instagram.png';
+import kallyas from '../../images/kallyas.jpg';
+import shop from '../../images/shop.jpg';
+import maxon from '../../images/maxon.jpg';
+import map from '../../images/map.jpg';
+import jsNotes from '../../images/js-notes.png';
+import inovice from '../../images/invoice.jpg';
+import bankSystem from '../../images/bank-system.png';
+import { useResize } from '../../shared/hook/resize/resize';
 
-import {
-  DurationTimesEnum,
-  MyWorksTypes,
-  ResizeHandlerActionsEnums
-} from "../../shared/types/types";
+import { DurationTimesEnum, MyWorksTypes, ResizeHandlerActionsEnums } from '../../shared/types/types';
 
 const myWorks: MyWorksTypes[] = [
   {
-    name: "INVOICES",
+    name: 'BANK SYSTEM',
+    image: bankSystem,
+    url: 'https://bshub.ir',
+  },
+  {
+    name: 'INVOICES',
     image: inovice,
-    url: "https://invoice-72uvei1ko-mohammadj23.vercel.app/auth"
+    url: 'https://invoice-72uvei1ko-mohammadj23.vercel.app/auth',
   },
   {
-    name: "JS NOTES",
+    name: 'JS NOTES',
     image: jsNotes,
-    url: "https://github.com/mohammaDJ23/js-notes/tree/main/Desktop/js-notes"
+    url: 'https://github.com/mohammaDJ23/js-notes/tree/main/Desktop/js-notes',
   },
   {
-    name: "INSTAGRAM",
+    name: 'INSTAGRAM',
     image: instagram,
-    url: "https://instagram-75476.web.app/auth"
+    url: 'https://instagram-75476.web.app/auth',
   },
   {
-    name: "KALLYAS",
+    name: 'KALLYAS',
     image: kallyas,
-    url: "https://kallyas-5caae.web.app/home"
+    url: 'https://kallyas-5caae.web.app/home',
   },
-  { name: "SHOP", image: shop, url: "https://shop-24c15.web.app/home" },
-  { name: "MAXON", image: maxon, url: "https://github.com/mohammaDJ23/maxon" },
-  { name: "MAP", image: map, url: "https://map-2e6d1.web.app/" }
+  { name: 'SHOP', image: shop, url: 'https://shop-24c15.web.app/home' },
+  { name: 'MAXON', image: maxon, url: 'https://github.com/mohammaDJ23/maxon' },
+  { name: 'MAP', image: map, url: 'https://map-2e6d1.web.app/' },
 ];
 
 const Portfolio: FunctionComponent = () => {
@@ -51,9 +53,7 @@ const Portfolio: FunctionComponent = () => {
   const portfolioItemHeadRef = useRef<HTMLDivElement | null>(null);
   const portfolioItemRef = useRef<HTMLDivElement | null>(null);
   const { isAllowToRender } = useRendringPage(portfolioRef);
-  const { portfolioItemPerRow } = useResize(
-    ResizeHandlerActionsEnums.PORTfOLIO_ITEM_PER_ROW
-  );
+  const { portfolioItemPerRow } = useResize(ResizeHandlerActionsEnums.PORTfOLIO_ITEM_PER_ROW);
 
   useEffect(() => {
     const { current: portfolioItemHead } = portfolioItemHeadRef;
@@ -65,21 +65,15 @@ const Portfolio: FunctionComponent = () => {
         col: HTMLDivElement[];
       } = {
         row: [],
-        col: []
+        col: [],
       };
 
-      portfolioItem.childNodes.forEach(row =>
-        rowCols["row"].push(row! as HTMLDivElement)
-      );
+      portfolioItem.childNodes.forEach(row => rowCols['row'].push(row! as HTMLDivElement));
 
-      rowCols.row.forEach(row =>
-        row.childNodes.forEach(col =>
-          rowCols["col"].push(col! as HTMLDivElement)
-        )
-      );
+      rowCols.row.forEach(row => row.childNodes.forEach(col => rowCols['col'].push(col! as HTMLDivElement)));
 
       TweenMax.fromTo(
-        [portfolioItemHead, ...rowCols["col"]],
+        [portfolioItemHead, ...rowCols['col']],
         DurationTimesEnum.FAST_DURATION,
         { opacity: 0, y: 50 },
         {
@@ -87,7 +81,7 @@ const Portfolio: FunctionComponent = () => {
           delay: 0.1,
           y: 0,
           stagger: DurationTimesEnum.STAGGER,
-          ease: "expo.out"
+          ease: 'expo.out',
         }
       );
     }
@@ -97,10 +91,7 @@ const Portfolio: FunctionComponent = () => {
     <>
       <Navigation />
 
-      <section
-        ref={portfolioRef}
-        className="portfolio white-background-color full-screen"
-      >
+      <section ref={portfolioRef} className="portfolio white-background-color full-screen">
         {isAllowToRender && (
           <div className="padding-3">
             <div className="max-width-1080 position-relative m-auto m-0 w-100 h-100">
